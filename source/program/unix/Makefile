@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall
+CFLAGS=-Wall $(INC_FLAGS)
 
 all: implementation.o
 

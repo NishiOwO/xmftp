@@ -2,13 +2,13 @@
 INSTALL_BIN_DIR=/usr/local/bin
 
 # If your libraries (see LIBS below) are located somewhere else, change this
-LFLAGS=-L/usr/X11R6/lib
+LFLAGS=-L/usr/X11R7/lib -L/usr/pkg/lib
 
 # Shouldn't have to edit anything below this line
 ##########################################################################
 
 CC=gcc
-CFLAGS=-Wall
+CFLAGS=-Wall -I/usr/X11R7/include -I/usr/pkg/include
 OBJ=	ui/xmftp.o ui/build_menu.o ui/menu_creation.o ui/operations.o \
 	ui/layout.o ui/setup_cbs.o program/misc.o \
 	program/unix/implementation.o program/ftp.o \

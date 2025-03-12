@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall
+CFLAGS=-Wall $(INC_FLAGS)
 
 all: misc.o ftp.o systems.o store_options.o url.o other
 
