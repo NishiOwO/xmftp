@@ -1,0 +1,183 @@
+v0.93alpha	-	Tue Apr 15 1997
+---------------------------------------
+
+	- First release, many things not finished, probably many bugs
+
+v0.94alpha	-	Tue Apr 15 1997
+---------------------------------------
+
+	- Added Cancel button on remote deletion (whoops)
+
+v0.9.5		-	Thu Apr 17 1997
+---------------------------------------
+
+	- Finished Local menu and Remote menus operations
+
+v0.9.6		-	Sat Apr 19 1997
+---------------------------------------
+
+	- Better processing of symlinks (now sanely downloadable and
+	  viewable). If you are downloading multiple files and some
+	  of them are symlinks, the 'total' information will be
+	  wrong, as the symlinks' bytesizes are not found out until
+	  the start of the transfer of that certain symlink. Only at
+	  that point will the 'total' information will be updated to
+	  include the symlinked file. This will probably be fixed later.
+
+	- The above applies to local symlinks and uploading as well
+
+	- symlinks to directories locally or remotely are NOT transferred
+
+v0.9.7		-	Sun May  4 1997
+---------------------------------------
+
+	- Added support for Windows NT FTP servers (like ftp.idsoftware.com)
+		- Unfortunately these servers do not support resume :(
+	- Added support for WAR-FTPD servers
+	- Added overwrite confirmation when server does not support resume
+	  feature. Note that this confirmation interrupts transfers as a
+	  whole.. if the user answers NO for the confirmation, the whole
+          transfer is terminated. This will probably be done in a nicer
+	  fashion later.
+	- Updated BUGS file
+
+v0.9.8		-	Thu May 15 1997
+---------------------------------------
+
+	- Now using XPM library for icons instead of crappy XmGetPixmap
+		- You can use your own icons too (XPMs only). Take a look in
+		  /usr/local/lib/xmftp/icons/ and replace them at will
+			- If you do replace them, keep a backup of your
+			  new icons becuase the next 'make install' will
+			  wipe them!
+		- You MUST have the XPM library to compile!
+        - Using the binary release some had trouble connecting to
+          sites (gethostbyname error). SHOULD be fixed now (using nslookup).
+	  Let me know if there are still problems.
+		- If you are compiling AND are having a gethostbyname
+		  problem, see the FAQ
+	- Changed compilation link line, maybe this will help you all
+	  that are getting undefined references?
+	  (suggested by mrxray@pop.slip.net)
+	- Added port support (suggested by glsmith@whale.st.usm.edu)
+		- Ports for a site can only be set via the Site Manager
+
+v0.9.9		-	Thu May 15 1997
+---------------------------------------
+
+	- Sites that did not have fully qualified domain names could not be
+	  connected to. fixed....
+	- Better (hopefully) parsing of nslookup output
+
+v1.0.0		-	Mon May 19 1997
+---------------------------------------
+
+	- Added Site command support (in the Remote menu)
+	- No longer have to fill in all fields when entering sites into
+	  the site manager. If login or password field is blank,
+	  anonymous login is used.
+	- Shortened timeouts on certain operations (connection etc)
+	  This is set to 30 seconds by default.
+	- Now a window can be brought up upon a connection that shows
+	  server responses.
+	- Now has an option menu for general settings
+	- Added Troubleshooting section to FAQ - please read if you encounter
+	  problems.
+
+v1.0.1		-	Thu Jun 26 1997
+---------------------------------------
+
+	- Added file modification times in directory listing
+	- Font sizes can be changed via .Xdefaults, check the FAQ for
+	  an example to make directory listing font smaller.
+	- Added sorting capabilities on time or name (via Local and Remote
+	  menus)
+	- Less frequent updating of transfer stats (at least 1 second 
+	  before refresh)
+	- On some slow transfers, screen would not refresh for possibly
+	  long amounts of time... fixed. Refresh is forced every 5 seconds.
+	- URL capabilites added to command line and quick connect. This is 
+	  handy when copying an ftp URL to the clipboard from a webpage in
+	  netscape. You can just paste it in the quick connect dialog and 
+	  xmftp will call the site and retrieve the specified file. You
+	  can also specify the URL on the command line.
+
+v1.0.2		-	Mon Jul  7 1997
+---------------------------------------
+
+	- RTM mode was not working in the binary release (or compilation
+	  with 'make bad_gethostbyname'). xmftp would just hang...fixed
+	- The following options have been added to General Settings:
+		- Toggle for large or small font setting. xmftp now defaults
+		  to a smaller font. For those that want more control of the
+		  font, take a look at the FAQ
+		  NOTE:	previous modifications to ~/.Xdefaults regarding
+			LIST_TAG will not take affect! See the FAQ for the
+			new tagnames
+		- Toggles for showing hidden files or not
+		- Toggle for cropping of filenames. Normally, when xmftp
+		  encounters a long filename, it crops it (adding "..."),
+		  but sometimes you would like to see the whole filename
+	- Stop button during transfers should work properly in most window
+	  managers now
+
+v1.0.3		-	Fri Jul 18 1997
+---------------------------------------
+
+	- Password entries are now *'ed out when entering them
+
+	- Standalone executable that has icons built in
+	  (no more /usr/local/lib/xmftp and root-required installs)
+
+	- 8bit icons are built in as well, so xmftp SHOULD work on
+	  8bit displays (let me know if there are problems)
+
+	- You can still use your own icons, see the FAQ for details
+
+	- No longer have to be root to install/run
+
+	- Added Appearance section to FAQ - look there for simple ways to
+	  improve how xmftp looks
+
+	- Can now type in directories right in the directory fields instead
+	  of hitting the 'CD...' buttons
+
+	- No longer have to store passwords within xmftp. You can leave
+	  the password field blank in the Site Manager and xmftp will prompt
+	  you for a password upon connect
+
+		- URLs unfortunately still have to be of the strict form:
+
+		  ftp://[user:password@]site.domain.com/dir1/...
+		  
+		  where '[user:password@]' is either totally omitted or
+		  all there. Type 'xmftp -help' for more info.
+
+	- Explanation of RTM mode in FAQ - Read to see if you should use it
+
+	- Added recognition of some AIX ftpd's that report they are running
+	  an 'UNKNOWN' system (untested, may still be problematic)
+
+	- Fixed a bug dealing with downloading symlinks (size recognition)
+
+v1.0.4		-	Wed Aug 20 1997
+---------------------------------------
+
+	- Cleaned up memory usage
+
+	- now can add a currently connected to site to the site manager
+
+		- If you call a new site, going to the site manager
+		  while connected will give you an extra button called
+		  'Add current site' to quickly add the site
+
+	- faster directory listings (up to 50% faster)
+
+	- non-flat site database file
+
+	- xmftp should not start out with a ridiculous window size when using
+	  resolutions below 1024x768
+
+	- statically linked binary now has only Motif statically linked
+
+	- no longer using nslookup

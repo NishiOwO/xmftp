@@ -1,0 +1,49 @@
+BUGS and things not finished:
+
+	Alas, the inevitable. xmftp is a work in progress so some features
+	may not even work. I have listed them below.
+
+	Application Bugs
+
+	- Unsuccessful transfers die 'quietly' with no feedback
+
+	- Speed indicator (and Total ETA) in transfer dialog can be quite
+	  meaningless when transferring many small files
+
+	- These functions are NOT implemented as of yet but may be soon:
+		- Option to disable resume
+		- More file information such as permission bits, group, owner.
+		- Resumable UPloads
+		- Compatibility with NcFTP's bookmarks file
+		- Encrypted password storage
+		- 'quote' command
+
+	- Resuming works on a FILENAME basis only. If a local file exists
+	that has the same name as a remote one you are trying to download
+	AND it is smaller in size, it is resumed.
+
+	- Currently, xmftp supports the following remote systems:
+		UNIX (like wu-ftpd)
+		some UNIX servers that don't have the SYST command (like
+			some Solaris/SunOS) no resuming though!
+		WAR-FTPD
+		Windows_NT (like ftp.idsoftware.com) no resuming though!
+
+	I think there is a problem with SERV-U ftpd's, though I don't know
+	of any SERV-U servers running off hand.
+
+	If you run into a public server that is not supported by xmftp,
+	please let me know at valankar@bigfoot.com. Give me the address of the
+	unsupported site and I will try to include support for it in the
+	next version of xmftp.
+
+	- Sites (unix or not) that don't request a password will not work
+	as of yet. I've only found one site that does this (ftp.troll.no).
+
+	- xmftp may lock up when performing a task and the remote host
+	becomes unreachable for some reason. If you are idle for a long time,
+	it is best to select Reconnect or you'll probably get a seg fault.
+
+	Appearance Bugs
+
+	- Resizing sometimes makes the CD... buttons get clipped

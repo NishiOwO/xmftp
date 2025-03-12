@@ -1,0 +1,8 @@
+nmake /nologo /a /f ftplib.mak CFG="Win32 Debug"
+nmake /nologo /a /f ftpdir.mak CFG="Win32 Debug"
+nmake /nologo /a /f ftpget.mak CFG="Win32 Debug"
+nmake /nologo /a /f ftpsend.mak CFG="Win32 Debug"
+nmake /nologo /a /f ftplib.mak CFG="Win32 Release"
+nmake /nologo /a /f ftpdir.mak CFG="Win32 Release"
+nmake /nologo /a /f ftpget.mak CFG="Win32 Release"
+nmake /nologo /a /f ftpsend.mak CFG="Win32 Release"

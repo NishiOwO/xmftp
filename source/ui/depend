@@ -1,0 +1,70 @@
+build_menu.o: build_menu.c build_menu.h
+connection.o: connection.c xmftp.h ../common/common.h operations.h \
+ ../program/misc.h ../program/../common/common.h \
+ ../program/../ui/xmftp.h ../program/ftp.h \
+ ../program/site_db/site_db.h ../program/site_db/../../common/common.h \
+ ../program/url.h transfer.h download.h remote_refresh.h connection.h \
+ view.h password.h
+download.o: download.c download.h xmftp.h ../common/common.h \
+ ../program/ftp.h ../program/../common/common.h ../program/misc.h \
+ ../program/../ui/xmftp.h ../ftplib/ftplib.h \
+ ../ftplib/../common/common.h ../ftplib/../ui/xmftp.h remote_refresh.h \
+ operations.h transfer.h connection.h ../program/systems.h
+fill_filelist.o: fill_filelist.c fill_filelist.h xmftp.h \
+ ../common/common.h
+layout.o: layout.c layout.h xmftp.h ../common/common.h operations.h \
+ toolbar.h pixmap.h ../program/unix/implementation.h \
+ ../program/unix/../../common/common.h ../program/unix/../misc.h \
+ ../program/unix/../../ui/xmftp.h remote_refresh.h ../program/ftp.h \
+ ../program/../common/common.h
+local_remote_ops.o: local_remote_ops.c xmftp.h ../common/common.h \
+ operations.h remote_refresh.h ../program/ftp.h \
+ ../program/../common/common.h ../program/misc.h \
+ ../program/../ui/xmftp.h transfer.h local_remote_ops.h view.h
+menu_creation.o: menu_creation.c xmftp.h ../common/common.h \
+ build_menu.h menu_creation.h operations.h connection.h site_mgr.h \
+ view.h local_remote_ops.h options.h remote_refresh.h \
+ ../program/misc.h ../program/../common/common.h \
+ ../program/../ui/xmftp.h
+operations.o: operations.c operations.h xmftp.h ../common/common.h \
+ ../program/misc.h ../program/../common/common.h \
+ ../program/../ui/xmftp.h ../program/ftp.h download.h fill_filelist.h \
+ transfer.h upload.h view.h connection.h
+options.o: options.c xmftp.h ../common/common.h options.h \
+ ../program/store_options.h fill_filelist.h operations.h \
+ remote_refresh.h
+password.o: password.c password.h
+pixmap.o: pixmap.c xmftp.h ../common/common.h pixmap.h \
+ icons/connect.xpm icons/disconnect.xpm icons/download.xpm \
+ icons/quit.xpm icons/logo.xpm icons/reconnect.xpm icons/site_mgr.xpm \
+ icons/upload.xpm icons/view.xpm icons/8bit/logo.xpm \
+ icons/8bit/connect.xpm icons/8bit/disconnect.xpm \
+ icons/8bit/download.xpm icons/8bit/quit.xpm icons/8bit/reconnect.xpm \
+ icons/8bit/site_mgr.xpm icons/8bit/upload.xpm icons/8bit/view.xpm
+remote_refresh.o: remote_refresh.c remote_refresh.h xmftp.h \
+ ../common/common.h ../program/misc.h ../program/../common/common.h \
+ ../program/../ui/xmftp.h operations.h ../program/ftp.h \
+ fill_filelist.h view.h
+setup_cbs.o: setup_cbs.c setup_cbs.h xmftp.h ../common/common.h \
+ operations.h remote_refresh.h
+site_mgr.o: site_mgr.c xmftp.h ../common/common.h \
+ ../program/site_db/site_db.h ../program/site_db/../../common/common.h \
+ ../program/misc.h ../program/../common/common.h \
+ ../program/../ui/xmftp.h site_mgr.h operations.h connection.h \
+ password.h
+toolbar.o: toolbar.c xmftp.h ../common/common.h operations.h \
+ connection.h view.h site_mgr.h pixmap.h
+transfer.o: transfer.c xmftp.h ../common/common.h transfer.h \
+ ../program/misc.h ../program/../common/common.h \
+ ../program/../ui/xmftp.h ../program/ftp.h operations.h connection.h
+upload.o: upload.c xmftp.h ../common/common.h transfer.h \
+ ../program/ftp.h ../program/../common/common.h operations.h \
+ ../program/misc.h ../program/../ui/xmftp.h remote_refresh.h upload.h \
+ connection.h
+view.o: view.c xmftp.h ../common/common.h view.h ../program/misc.h \
+ ../program/../common/common.h ../program/../ui/xmftp.h transfer.h \
+ download.h operations.h
+xmftp.o: xmftp.c xmftp.h ../common/common.h menu_creation.h layout.h \
+ operations.h setup_cbs.h connection.h ../program/misc.h \
+ ../program/../common/common.h ../program/../ui/xmftp.h \
+ ../program/store_options.h

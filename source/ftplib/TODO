@@ -1,0 +1,20 @@
+Here are some things which users have asked for that I haven't gotten
+around to yet or haven't figured out how to implement it yet.
+
+- Pass data to calling program instead of to file
+
+	I'm not sure how I would really want to handle this.  Callbacks?
+	Create the data connection and give the data socket fd to the
+	user?  Maybe ftpRead() and ftpWrite() functions?
+
+- Percentage complete indication
+
+	Do I want to do this in ftplib.c or somehow tie it into allowing
+	the user program to do the I/O?  I could parse the size out of
+	the 'retr' response and give it to the user.  Let the user do the
+	calculations while they are reading/writing the socket.
+
+- C++ support
+
+	I haven't done enough C++ to be able to generate the object model
+	myself.  I'm open to ideas on how to set this up.

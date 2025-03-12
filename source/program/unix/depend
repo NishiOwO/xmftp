@@ -1,0 +1,2 @@
+implementation.o: implementation.c implementation.h \
+ ../../common/common.h ../misc.h

@@ -1,0 +1,55 @@
+TARGETS = qftp
+OBJECTS = qftp.o ftplib.o
+SOURCES = qftp.c ftplib.c
+HEADERS = ftplib.h
+OLDTARGETS = ftpdir ftpsend ftpget
+OLDOBJECTS = ftpdir.o ftpsend.o ftpget.o
+OLDSOURCES = ftpdir.c ftpsend.c ftpget.c
+
+ifeq ($(SYSTYPE),OSF1)
+CFLAGS = -std $(DEBUG) $(INCLUDES)
+DEPFLAGS = -f .depend
+endif
+ifeq ($(SYSTYPE),Linux)
+CFLAGS = -Wall $(DEBUG) $(INCLUDES)
+DEPFLAGS =
+endif
+
+all : $(TARGETS)
+
+old : $(OLDTARGETS)
+
+clean :
+	rm -f $(OBJECTS) $(OLDOBJECTS) core *.bak
+
+clobber : clean
+	rm -f $(TARGETS) $(OLDTARGETS) .depend
+
+depend :
+ifeq ($(SYSTYPE),OSF1)
+	touch .depend
+	makedepend $(DEPFLAGS) -- $(CFLAGS) -- $(SOURCES) $(OLDSOURCES)
+endif
+ifeq ($(SYSTYPE),Linux)
+	$(CC) $(CFLAGS) -M $(SOURCES) $(OLDSOURCES) > .depend
+endif
+
+ftplib.o qftp.o : ftplib.h
+
+$(TARGETS) $(OLDTARGETS) : ftplib.o
+
+ftpdir : ftpdir.o
+	cc -o $@ $< ftplib.o
+
+ftpsend : ftpsend.o
+	cc -o $@ $< ftplib.o
+
+ftpget : ftpget.o
+	cc -o $@ $< ftplib.o
+
+qftp : qftp.o
+	cc -o $@ $< ftplib.o
+
+ifeq (.depend,$(wildcard .depend))
+include .depend
+endif

@@ -1,0 +1,13 @@
+ftp.o: ftp.c ../ftplib/ftplib.h ../ftplib/../common/common.h \
+ ../ftplib/../ui/xmftp.h ../ftplib/../ui/../common/common.h ftp.h \
+ ../common/common.h systems.h
+misc.o: misc.c misc.h ../common/common.h ../ui/xmftp.h \
+ ../ui/../common/common.h unix/implementation.h \
+ unix/../../common/common.h unix/../misc.h unix/../../ui/xmftp.h ftp.h \
+ systems.h
+store_options.o: store_options.c ../common/common.h store_options.h \
+ misc.h ../ui/xmftp.h ../ui/../common/common.h unix/implementation.h \
+ unix/../../common/common.h unix/../misc.h unix/../../ui/xmftp.h
+systems.o: systems.c ../common/common.h misc.h ../ui/xmftp.h \
+ ../ui/../common/common.h systems.h
+url.o: url.c ../common/common.h url.h

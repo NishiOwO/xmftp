@@ -1,0 +1,1 @@
+site_db.o: site_db.c site_db.h ../../common/common.h

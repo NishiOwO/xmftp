@@ -1,0 +1,2 @@
+ftplib.o: ftplib.c ../common/common.h ../ui/xmftp.h \
+ ../ui/../common/common.h ../ui/operations.h ftplib.h

@@ -1,0 +1,229 @@
+			xmftp FAQ - Updated Thu July 18 1997
+
+1. General
+----------
+
+1.1	What is xmftp?
+1.2	Why should I use xmftp?
+1.3	Do I really need Motif to run xmftp?
+1.4	What sort of features does xmftp have?
+1.5	What the hell is RTM mode anyways?
+1.6	Is there a mailing list for notification of xmftp updates?
+
+2. Appearance
+-------------
+
+2.1	How can I change xmftp's default color scheme? It is ugly!
+2.2	How can I use my own icons instead of the default ones?
+2.3	I need more control over fonts besides 'Large' and 'Small'! How?
+
+3. Troubleshooting
+------------------
+
+3.1	xmftp is extremely buggy. Why?
+3.2	Help! I cannot connect to any host!
+3.3	What does 'make bad_gethostbyname' do?
+3.4	I really dislike xmftp
+
+
+				  1. General
+				  ----------
+
+1.1	What is xmftp?
+----------------------
+
+	xmftp is a X/Motif FTP client designed to give FTP a nice interface
+	and also offer features that I think are nice to have in an FTP
+	client. It was programmed as a class project that I thought would
+	be useful to some people. Be forewarned, I am not an expert X
+	programmer, rather I wrote this to get some practice and a good
+	grade. It is a very simple program and still has bugs and missing
+	features (see the file BUGS).
+
+	xmftp is written and maintained by Viraj Alankar 
+	(valankar@bigfoot.com).
+
+	Please send any comments/suggestions to this address.
+
+	The FTP routines are based on a modification of FTP Library Routines
+	Release 2 by Thomas Pfau (pfau@cnj.digex.net).
+
+1.2	Why should I use xmftp?
+-------------------------------
+
+	Well if you don't like it, you really shouldn't. But at least give it
+	a try :). My main goal was to make xmftp something that I myself
+	would enjoy and continue using, utilizing the features that I found
+	necessary for my own needs, as well as doing away with features that
+	are not that important (or features that I was too lazy to code hehe).
+
+1.3	Do I really need Motif to run xmftp?
+--------------------------------------------
+
+	To compile xmftp you really do need Motif. However, you may use the
+	statically linked binaries of xmftp also available if you do not
+	have Motif. The only drawback is that these binaries are bulky.
+
+1.4	What sort of features does xmftp have?
+----------------------------------------------
+
+	- Extensive transfer information when downloading/uploading
+		- Current file AND total transfer information (when 
+		transferring multiple files) given in real-time including:
+			- status bar
+			- textual file/total position indicators
+			- file AND total ETA (estimated time of arrival)
+			- speed/throughput of transfer information
+
+	I always found the need of downloading multiple files, yet every
+	FTP client I've used only gave me information on the current transfer
+	rather than the transfer as a whole. I found this unacceptable.
+	xmftp gives total transfer information as well.
+
+	- Provides easy retrieval of directories 
+		- Just select a directory and select download; directories
+		are processed recursively
+		- Can select the './' directory to download everything in
+		the current directory.
+
+	- Automatic resuming of downloads
+
+	If you're like me, you usually just want to download a directory
+	or a couple of directories with no hassles. Say you were downloading
+	a directory and cancelled for some reason. When you download that 
+	directory again, you probably would want it to skip files you 
+	already have as well as resume ones you didn't finish. This is what
+	xmftp will do.
+
+	There are other cool things like the Site manager and the toolbar.
+
+1.5	What the hell is RTM mode anyways?
+------------------------------------------
+
+	Have you ever been ftp'ing some file only to have your PPP connection
+lost? Well I have... many times, usually by the result of line noise. Whats
+worse is this may be in the middle of the night during a long download, so I'm
+not there to restart it. Anyhow, I wished for an ftp client that would
+redial the site and continue the transfer if ever the connection was
+broken. 
+
+	Subsequently, another command line client called lftp does just this
+(and is excellent by the way). I sought to incorporate a similar feature in
+xmftp, and it is called RTM mode. If enabled (via General Settings), and no
+data is recieved within a certain time frame, an attempt is made to redial the
+site and resume the transfer. xmftp tries indefinitely to reconnect to the
+site, pausing 30 seconds between each retry.
+
+	But hey, if my PPP connection goes down, what will bring it back up
+again? Certainly not xmftp, therefore RTM mode has to work in conjunction with
+something else making sure an internet connection is re-established if
+broken. I personally do this with some simple scripts via 'cron'.
+
+	So is RTM mode good for anything besides us slow pokes with modem
+connections? Yes it is. Sometimes connections are broken to sites, and if RTM
+mode is enabled, xmftp 'should' notice this and redial the site to resume the
+file(s). Of course the remote system must support the REST (resume) command
+for RTM mode to work. Most 'real' sites support REST. Some Win95/NT ftpd's
+don't, but then again I don't consider them 'real' OS's :).
+
+1.6	Is there a mailing list for notification of xmftp updates?
+------------------------------------------------------------------
+
+	Just email me at the following address saying you'd like to be on the
+mailing list for version updates:
+
+	valankar@bigfoot.com
+
+
+				2. Appearance
+				-------------
+
+2.1	How can I change xmftp's default color scheme? It is ugly!
+------------------------------------------------------------------
+
+	Simple, use X resources. This does not give you very much control over
+the colors, but it can definitely help the appearance. You can do this on the
+command line or via ~/.Xdefaults. For example, I like the following scheme:
+
+xmftp -background DarkSlateGray -foreground Wheat
+
+	If you don't want to type this in all of the time just add lines to
+your ~/.Xdefaults as follows:
+
+xmftp*background: DarkSlateGray
+xmftp*foreground: Wheat
+
+	Then do a 'xrdb ~/.Xdefaults' to make the changes take affect (or
+restart X), and xmftp should have the colors you specified.
+
+2.2	How can I use my own icons instead of the default ones?
+---------------------------------------------------------------
+
+	xmftp checks the environment variable XMFTP_ICON_DIR before it tries
+to display its internal icons. If that variable is set, icons are loaded from
+that dir. You must put all of your icons in that directory, with names just
+like in source/ui/icons/ from the xmftp source tree. Icons must be XPM format!
+
+2.3	I need more control over fonts besides 'Large' and 'Small'! How?
+------------------------------------------------------------------------
+
+	Currently you can only change the directory listing font. This can be
+done via a .Xdefaults. Assuming you are proficient in horrific X font lists,
+you can change the tags LG_LIST_TAG and SM_LIST_TAG to change the default
+Large and Small fonts respectively. For example, the following is the default
+setting for the xmftp Small font:
+
+xmftp*fontList: fixed,-*-courier-medium-r-*--*-120-*=SM_LIST_TAG
+
+
+
+				3. Troubleshooting
+				------------------
+
+3.1	xmftp is extremely buggy. Why?
+--------------------------------------
+
+	There are many problems being worked on. See the file BUGS for known
+	problems. For now, the basic features are for the most part
+	working. If you think you've found a new problem not mentioned in the
+	file BUGS, please let me know!
+	
+3.2	Help! I cannot connect to any host!
+-------------------------------------------
+
+	First make sure you have the newest version of xmftp. The latest
+	release is always at http://www.magg.net/~kaos/html/xmftp.html
+
+	Next, the problem most likely deals with resolving of a hostname.
+	Try to connect to an explicit IP address instead of a name address.
+	Make sure this works first.
+
+	If you are recieving a 'gethostbyname' error, then instead of 
+	using 'make' to compile try:
+
+	make bad_gethostbyname
+
+3.3	What does 'make bad_gethostbyname' do?
+-------------------------------------------------------------------------
+
+	The 'make bad_gethostbyname' command will force xmftp to use 
+	nslookup instead of the gethostbyname() function when compiling.
+
+	Evidently, not all nslookup's give the same output on all systems.
+	Therefore xmftp will get confused or hang. Notably, a Debian
+	nslookup gives very different output from a Slackware or Redhat
+	nslookup.
+
+	Until I figure out a better way of handling this, you will have to
+	use an nslookup binary that gives similar output as the Slackware
+	and Redhat ones. If you don't have access to one of these, let
+	me know.
+
+3.4	I really dislike xmftp
+------------------------------
+
+	make uninstall and let me know how I can improve on it.
+
+
+		Viraj Alankar
+		valankar@bigfoot.com

@@ -1,0 +1,21 @@
+The obligatory revision history...
+
+Changes from 8/31/96 version to 3/15/97 version
+
+1) Added copyright information to sources.
+
+2) Changed from 'port' to 'pasv' which I'm told will allow the routines
+   to work from behind a firewall.  It's also a lot simpler and cleaner
+   than all that code to setup and accept a connect from the server.
+
+3) Added delete (ftprm) support to qftp.c.
+
+4) Modified qftp to allow use without a softlink by passing the ftp
+   command as the first argument.
+
+5) Added netbuf argument to all calls to eliminate static storage and
+   allow multiple simultaneous connections.
+
+6) Renamed routines from ftp*() to Ftp*() to avoid problems with existing
+   programs.  Added macros in libftp.h to support old interface.  Renamed
+   ftpOpen() to FtpConnect().

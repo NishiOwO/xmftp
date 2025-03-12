@@ -1,0 +1,28 @@
+			xmftp Quick and Dirty Install
+
+	0) tar xvzf xmftp-???.tar.gz
+	   cd xmftp
+
+	1) Read the FAQ and BUGS file to know what you are getting into.
+
+	2) cd source
+
+	3) If you have an xmftp BINARY package, skip to step 6.
+
+	4a) Edit the Makefile and make sure everything is OK. The Makefile
+	    assumes that Motif is installed in the standard location and
+	    the X/Motif libraries are found in /usr/X11R6/lib and the
+	    installation root dir is /usr/local
+
+	4b) You may have to edit ui/Makefile as well if your headers
+	    cannot be found
+
+	5) make
+
+	6) If all went well you should have an 'xmftp' binary in the
+           current directory. If you would like to install it in a
+	   standard location (not necessary), become root and do:
+
+           make install
+
+	7) email valankar@bigfoot.com with your comments and/or suggestions.

@@ -1,0 +1,14 @@
+Begin3
+Title:          ftplib
+Version:        Release 2
+Entered-date:   15MAY97
+Description:    library of callable ftp routines and a command line
+		utility for transferring files via ftp
+Keywords:       ftp library tcpip script
+Author:         pfau@cnj.digex.net (Thomas Pfau)
+Primary-site:   ftp.cnj.digex.net /pub/cnj/pfau
+		60KB ftplib-v2.tar.gz
+Alternate-site: sunsite.unc.edu /pub/Linux/libs
+Platforms:      linux windows-nt vms osf/1
+Copying-policy: GPL
+End
