@@ -72,6 +72,8 @@
 #define FTP_BUFSIZ 8192
 #define ACCEPT_TIMEOUT 30
 
+netbuf *DefaultNetbuf;
+
 void wakeup(int sig);
 int my_get_host_by_name(char *host, struct in_addr *site);
 
@@ -410,12 +412,12 @@ static int FtpPort(netbuf *nControl)
 	return -1;
     cp++;
     sscanf(cp,"%d,%d,%d,%d,%d,%d",&v[2],&v[3],&v[4],&v[5],&v[0],&v[1]);
-    (unsigned char)sin.sa.sa_data[2] = v[2];
-    (unsigned char)sin.sa.sa_data[3] = v[3];
-    (unsigned char)sin.sa.sa_data[4] = v[4];
-    (unsigned char)sin.sa.sa_data[5] = v[5];
-    (unsigned char)sin.sa.sa_data[0] = v[0];
-    (unsigned char)sin.sa.sa_data[1] = v[1];
+    sin.sa.sa_data[2] = v[2];
+    sin.sa.sa_data[3] = v[3];
+    sin.sa.sa_data[4] = v[4];
+    sin.sa.sa_data[5] = v[5];
+    sin.sa.sa_data[0] = v[0];
+    sin.sa.sa_data[1] = v[1];
     sData = socket(PF_INET,SOCK_STREAM,IPPROTO_TCP);
     if (sData == -1)
     {

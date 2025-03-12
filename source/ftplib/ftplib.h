@@ -39,7 +39,7 @@
 
 typedef struct NetBuf netbuf;
 
-netbuf *DefaultNetbuf;
+extern netbuf *DefaultNetbuf; /* defined in ftplib/ftplib.c */
 
 #define ftplib_lastresp FtpLastResponse(DefaultNetbuf)
 #define ftpInit FtpInit
